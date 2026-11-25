@@ -30,7 +30,7 @@ export function decodeEntities(s: string): string {
 }
 
 /** Zero-width, bidi-override and other invisible characters used to hide injected text. */
-const INVISIBLE = /[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F​-‏‪-‮⁠-⁤⁦-⁩﻿]/g;
+const INVISIBLE = /[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F\u200B-\u200F\u202A-\u202E\u2060-\u2064\u2066-\u2069\uFEFF]/g;
 
 /** Converts untrusted HTML/text to safe, bounded plain text. */
 export function toPlainText(input: unknown, maxLength = 4000): string {

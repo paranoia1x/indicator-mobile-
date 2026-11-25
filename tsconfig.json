@@ -4,7 +4,6 @@
     "strict": true,
     "noUncheckedIndexedAccess": false,
     "noFallthroughCasesInSwitch": true,
-    "baseUrl": ".",
     "paths": { "@/*": ["./*"] },
     "types": ["jest"]
   },

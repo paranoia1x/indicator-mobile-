@@ -20,11 +20,11 @@ const prov: Provenance = { providerId: 't', providerName: 'Test', status: 'histo
 
 describe('sanitisation', () => {
   it('strips scripts, tags, entities and invisible characters', () => {
-    const s = toPlainText('<p>Hello&nbsp;<b>world</b></p><script>alert(1)</script>&lt;img onerror=x&gt;​hidden');
+    const s = toPlainText('<p>Hello&nbsp;<b>world</b></p><script>alert(1)</script>&lt;img onerror=x&gt;\u200Bhidden');
     expect(s).not.toMatch(/<|script|alert|onerror/);
     expect(s).toContain('Hello world');
     expect(s).toContain('hidden');
-    expect(s).not.toContain('​');
+    expect(s).not.toContain('\u200B');
   });
   it('bounds length', () => {
     expect(toPlainText('a'.repeat(100), 10)).toHaveLength(10);
